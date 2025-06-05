@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cornelia Byass – Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Slider Styling */
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+
+    .slider img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      opacity: 1 !important;
+      filter: none !important;
+      cursor: pointer;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background-color: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .arrow.prev { left: 10px; }
+    .arrow.next { right: 10px; }
+
+    .pagination-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .pagination-dots span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #888;
+      border-radius: 50%;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+
+    .pagination-dots .active {
+      background: #000;
+    }
+
+    /* Lightbox Styles */
+    #lightbox-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #lightbox-image {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    #lightbox-arrow-prev,
+    #lightbox-arrow-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: white;
+      background: rgba(0,0,0,0.4);
+      border: none;
+      padding: 0.2rem 0.6rem;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 3px;
+      z-index: 10000;
+    }
+
+    #lightbox-arrow-prev { left: 10px; }
+    #lightbox-arrow-next { right: 10px; }
+  </style>
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="#" class="logo">Cornelia Byass</a>
+    </div>
+    <div class="nav-right">
+      <a href="#work">Gallery</a>
+      <a href="#projects">Projects</a>
+      <a href="#about-contact">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <section class="hero">
+      <h1 class="hero-title">cornelia byass</h1>
+    </section>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="portfolio" id="work">
+    <div class="gallery">
+      <div class="item">
+        <a href="#stubble-co">
+          <img src="https://i.postimg.cc/tgKCggws/Kit-Studio-Stubble-Co-Brand-18.jpg" alt="Stubble and Co" />
+        </a>
+        <div class="caption">Stubble & Co Branding</div>
+      </div>
+      <div class="item">
+        <a href="#anyone-can-innovate">
+          <img src="https://i.postimg.cc/sgzKB2fB/GREY-TEST.png" alt="Anyone Can Innovate" />
+        </a>
+        <div class="caption">Innovation Book Design</div>
+      </div>
+      <div class="item">
+        <a href="#response-typeface-design">
+          <img src="https://i.postimg.cc/3N8gL77x/Poster-Mockup-responsecomp-2.jpg" alt="Project 3" />
+        </a>
+        <div class="caption">Response Typeface Design</div>
+      </div>
+      <div class="item">
+        <a href="#nug-nation">
+          <img src="https://i.postimg.cc/8PnhbqYT/record-sleeve-pic.png" alt="Nug Nation Project" />
+        </a>
+        <div class="caption">Record Sleeve Design</div>
+      </div>
+      
+    </div>
+    <hr />
+  </section>
+
+  <!-- Projects Section -->
+  <section class="portfolio" id="projects">
+
+    <!-- Project 1 -->
+    <div class="project-wrapper" id="stubble-co">
+      <h3>Stubble and Co</h3>
+      <div class="project-content">
+        <div class="slider-container">
+          <button class="arrow prev">&#10094;</button>
+          <div class="slider">
+            <img src="https://i.postimg.cc/tgKCggws/Kit-Studio-Stubble-Co-Brand-18.jpg" alt="Slide 1" />
+            <img src="https://i.postimg.cc/q7dtFLRj/Kit-Studio-Stubble-Co-Brand-02-min.png" alt="Slide 2" />
+            <img src="https://i.postimg.cc/9Qhm196P/Kit-Studio-Stubble-Co-Brand-17-scaled.jpg" alt="Slide 3" />
+            <img src="https://i.postimg.cc/htVvVdrx/extende-Kit-Studio-Stubble-Co-Brand-19-scaled.png" alt="Slide 4" />
+            <img src="https://i.postimg.cc/hjhSDBRt/STUBBLES-EDITED-EXTENDED.png" alt="Slide 5" />
+          </div>
+          <button class="arrow next">&#10095;</button>
+          <div class="pagination-dots"></div>
+        </div>
+        <div class="project-description">
+          <p><strong>01 STUBBLE & CO</strong></p>
+          <p>Designing the iconography for the website and social media for Stubble & Co. I was asked to allign the icons with the logo. Below shows my process of taking a cue from the logo (the peak of the mountain) and applying this shape to the icons.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Project 2 -->
+    <div class="project-wrapper" id="anyone-can-innovate">
+      <h3>Anyone Can Innovate</h3>
+      <div class="project-content">
+        <div class="slider-container">
+          <button class="arrow prev">&#10094;</button>
+          <div class="slider">
+            <img src="https://i.postimg.cc/Gt9PPw0y/higher-hight.png" alt="Book Cover 1" />
+            <img src="https://i.postimg.cc/fbywND9F/PRINT-READY.png" alt="Book Cover 2" />
+            <img src="https://i.postimg.cc/sgzKB2fB/GREY-TEST.png" alt="Book Cover 3" />
+          </div>
+          <button class="arrow next">&#10095;</button>
+          <div class="pagination-dots"></div>
+        </div>
+        <div class="project-description">
+          <p><strong>02 ANYONE CAN INNOVATE</strong></p>
+          <p>This project involved developing the branding and visual identity for “Anyone Can Innovate”.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+<!-- Project 3 -->
+<div class="project-wrapper" id="response-typeface-design">
+  <h3>Response – Typeface Design</h3>
+  <div class="project-content">
+    <div class="slider-container">
+      <div class="slider">
+
+        <!-- First image -->
+        <img src="https://i.postimg.cc/3N8gL77x/Poster-Mockup-responsecomp-2.jpg" alt="Project 3" />
+
+        <!-- Embedded Vimeo Video Slide (moved after first image) -->
+        <div style="flex-shrink: 0; width: 100%;">
+          <iframe 
+            src="https://player.vimeo.com/video/877838870" 
+            title="Vimeo video"
+            style="width: 100%; height: 100%; aspect-ratio: 16 / 9; border: none;" 
+            allowfullscreen 
+            allow="autoplay; fullscreen; picture-in-picture">
+          </iframe>
+        </div>
+
+        <!-- Remaining image slides -->
+        <img src="https://i.postimg.cc/qMSHLhQq/eeee.png" />
+        <img src="https://i.postimg.cc/yyyyy/image2.jpg" alt="Response Project Image 2" />
+
+      </div>
+
+      <button class="arrow prev">&#10094;</button>
+      <button class="arrow next">&#10095;</button>
+      <div class="pagination-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span> <!-- Added extra dot for the video slide -->
+      </div>
+    </div>
+
+    <div class="project-description">
+      <p>
+        <strong>03 RESPONSE - TYPEFACE DESIGN</strong><br />
+        An experimental typeface that reacts to sound. The typeface changes weight depending on the heaviness and intensity of the music: The glyphs and music develop together. This project involved typography design, sound design and motion graphics, and aligning the three whilst creating.
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr />
+<!-- Project 4 -->
+<div class="project-wrapper" id="nug-nation">
+  <h3>Nug Nation – Record Design</h3>
+  <div class="project-content">
+    <div class="slider-container">
+      <div class="slider">
+
+        <!-- Image slides wrapped in divs -->
+        <div style="flex-shrink: 0; width: 100%;">
+          <img src="https://i.postimg.cc/8PnhbqYT/record-sleeve-pic.png" alt="Record Design 1" style="width: 100%; height: auto;" />
+        </div>
+        <div style="flex-shrink: 0; width: 100%;">
+          <img src="https://i.postimg.cc/JhbnfKqT/PAPAOPTIONS.png" alt="Record Design 2" style="width: 100%; height: auto;" />
+        </div>
+        <div style="flex-shrink: 0; width: 100%;">
+          <img src="https://i.postimg.cc/VN3hCWPc/2-hands-pic.png" alt="Record Design 3" style="width: 100%; height: auto;" />
+        </div>
+
+        <!-- Vimeo video slide -->
+        <div style="flex-shrink: 0; width: 100%;">
+          <iframe 
+            src="https://player.vimeo.com/video/1089659203" 
+            title="Nug Nation Video"
+            style="width: 100%; height: 100%; aspect-ratio: 16 / 9; border: none;" 
+            allowfullscreen 
+            allow="autoplay; fullscreen; picture-in-picture">
+          </iframe>
+        </div>
+
+      </div>
+
+      <button class="arrow prev">&#10094;</button>
+      <button class="arrow next">&#10095;</button>
+      <div class="pagination-dots"></div>
+    </div>
+
+    <div class="project-description">
+      <p><strong>04 NUG NATION – RECORD DESIGN</strong></p>
+      <p>
+        Developing the visual identity for Suckerpunch label. I have worked with producer and DJ Papa Nugs to design records and promote his album releases; creating print, digital and animations to promote his upcoming projects.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<hr />
+
+<!-- Project 5 -->
+<div class="project-wrapper" id="new-project-5">
+  <h3>MOSS - Hoarding Design</h3>
+  <div class="project-content">
+    <div class="slider-container">
+      <button class="arrow prev">&#10094;</button>
+      <div class="slider">
+        <img src="https://i.postimg.cc/259DXKLR/OSW-Hoarding.jpg" alt="Project 5 Image 1" />
+        <img src="https://i.postimg.cc/VL9cc60F/OSW-Hoarding-7a.jpg" alt="Project 5 Image 2" />
+        <img src="https://i.postimg.cc/SsYw1NpC/Moss-Bluewater-Hoarding-Rev-A-p66901.png" alt="Project 5 Image 3" />
+        <!-- Add more images as needed -->
+      </div>
+      <button class="arrow next">&#10095;</button>
+      <div class="pagination-dots"></div>
+    </div>
+    <div class="project-description">
+      <p><strong>05 Moss - Hoarding Design</strong></p>
+      <p>Creating large scale print and hoarding design for the re-brand of Moss. My job, as a designer, was to create and communicate a more contemporary feel for the brand. </p>
+    </div>
+  </div>
+
+  </section>
+<!-- About & Contact -->
+<section class="info-section" id="about-contact">
+  <hr />
+
+  <div class="info-block">
+    <h2>About</h2>
+    <p></p>
+  </div>
+      I am a graphic designer specialising in typography, motion graphics and visual identity. I work across physical and digital platforms and explore communication channels that suit each challenge.
+      My portfolio includes a combination of commissions, studio work and projects that I have created purely for the enjoyment of designing.
+    </p>
+  </div>
+
+  <hr />
+
+  <div class="info-block" id="contact">
+    <div class="contact-left">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:byasscornelia@gmail.com">byasscornelia@gmail.com</a></p>
+      <p>Mobile: <a href="tel:07767899731">07767899731</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/corneliaa_design" target="_blank">@corneliaa_design</a></p>
+    </div>
+  
+   <div class="contact-sticker">
+  For more of my work, feel free to take a look at my 
+  <a href="https://www.instagram.com/corneliaa_design" target="_blank" rel="noopener noreferrer" class="hover-link">Instagram page</a>. 
+  To get in touch about upcoming projects or working with me, you can reach me on my 
+  <a href="mailto:byasscornelia@gmail.com" class="hover-link">email address</a> or my phone number.
+</div>
+
+  <hr />
+</section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cornelia Byass</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox-overlay" aria-hidden="true" role="dialog" aria-label="Image lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button id="lightbox-arrow-prev" aria-label="Previous image">&#10094;</button>
+    <div id="lightbox-content">
+      <img id="lightbox-image" src="" alt="Expanded project image" />
+    </div>
+    <button id="lightbox-arrow-next" aria-label="Next image">&#10095;</button>
+  </div>
+
+  <!-- Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const projects = document.querySelectorAll('.project-wrapper');
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-arrow-prev');
+    const lightboxNext = document.getElementById('lightbox-arrow-next');
+    let currentImages = [];
+    let currentIndex = 0;
+
+    projects.forEach(project => {
+      const slider = project.querySelector('.slider');
+      const imgs = slider.querySelectorAll('img');
+      const prev = project.querySelector('.arrow.prev');
+      const next = project.querySelector('.arrow.next');
+      const dots = project.querySelector('.pagination-dots');
+      let index = 0;
+
+      imgs.forEach((img, i) => {
+        img.addEventListener('click', () => {
+          currentImages = Array.from(imgs).map(i => i.src);
+          currentIndex = i;
+          updateLightbox();
+          lightboxOverlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        dots.querySelectorAll('span').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      }
+
+      imgs.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.addEventListener('click', () => {
+          index = i;
+          updateSlider();
+        });
+        dots.appendChild(dot);
+      });
+
+      prev.addEventListener('click', e => {
+        e.stopPropagation();
+        index = (index - 1 + imgs.length) % imgs.length;
+        updateSlider();
+      });
+
+      next.addEventListener('click', e => {
+        e.stopPropagation();
+        index = (index + 1) % imgs.length;
+        updateSlider();
+      });
+
+      updateSlider();
+    });
+
+    function updateLightbox() {
+      lightboxImage.src = currentImages[currentIndex];
+      lightboxImage.alt = `Image ${currentIndex + 1}`;
+    }
+
+    lightboxClose.addEventListener('click', () => {
+      lightboxOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+
+    lightboxPrev.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      updateLightbox();
+    });
+
+    lightboxNext.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      updateLightbox();
+    });
+
+    lightboxOverlay.addEventListener('click', e => {
+      if (e.target === lightboxOverlay) {
+        lightboxOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (lightboxOverlay.style.display === 'flex') {
+        if (e.key === 'Escape') {
+          lightboxOverlay.style.display = 'none';
+          document.body.style.overflow = '';
+        } else if (e.key === 'ArrowRight') {
+          lightboxNext.click();
+        } else if (e.key === 'ArrowLeft') {
+          lightboxPrev.click();
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

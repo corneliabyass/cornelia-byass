@@ -1,0 +1,706 @@
+/* Font-face declarations */
+@font-face {
+  font-family: 'PPFormula';
+  src: url('./fonts/PPFormula-Light.woff2') format('woff2'),
+       url('./fonts/PPFormula-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPFormula';
+  src: url('./fonts/PPFormula-Medium.woff2') format('woff2'),
+       url('./fonts/PPFormula-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PPFormula', sans-serif;
+  font-weight: 300;
+  background: #fff;
+  color: #111;
+  line-height: 1.7;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav-left .logo {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-right a {
+  color: #111;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-right a:hover {
+  color: #777;
+}
+
+nav button.active {
+  color: #62d790; /* your green */
+}
+
+
+/* Header */
+header {
+  position: relative;
+  z-index: 1; /* lower than gallery and navbar */
+  margin-bottom: 0px;
+  text-align: center;
+  padding: 50px 0 10px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Section styling */
+section {
+  padding: 0 20px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 40px auto;
+}
+
+/* Gallery */
+.gallery {
+  background-color: #fff; /* or match your page background */
+  position: relative;
+  z-index: 2; /* above header but below navbar */
+  /* rest of your styles */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.item {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  position: relative;
+  cursor: pointer;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.item:hover img {
+  opacity: 0.7;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.item:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive gallery layout */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-description {
+    order: 2; /* ensure description appears below slider */
+  }
+}
+
+/* About and Contact Section */
+.info-section {
+  padding: 2rem 1rem;
+}
+.info-block:first-of-type h2 {
+  margin-bottom: 16px; /* or 20px, whatever looks right */
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+/* General block styling */
+.info-block {
+  display: block;
+}
+
+/* About-specific styling */
+.info-block.about h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 20px; 
+  font-weight: 500;
+}
+
+/* Contact-specific styling */
+.info-block.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-block.contact h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.contact-wrapper {
+  display: flex;
+  align-items: flex-start; /* Align top of "Contact" and "Email" */
+  gap: 30px;
+}
+
+
+/* Footer */
+footer {
+  font-size: 0.9rem;
+  color: #999;
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* Project Section */
+.project-wrapper {
+  margin-top: 40px;
+}
+
+.project-wrapper h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Desktop project content: grid side-by-side */
+.project-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Make project images same size as gallery */
+.slider-container {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Slideshow images */
+.slider img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Navigation Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.arrow.prev {
+  left: 10px;
+}
+
+.arrow.next {
+  right: 10px;
+}
+
+/* Pagination Dots */
+.pagination-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pagination-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pagination-dots .active {
+  background: #111;
+}
+
+/* Project Description */
+.project-description {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  touch-action: pan-y;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightbox-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  width: 100%;
+  touch-action: pan-y;
+  will-change: transform;
+  overflow-x: hidden;
+}
+
+.lightbox-slider img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  min-width: 100%;
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: auto !important;
+}
+
+/* Lightbox Controls */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+/* Optional: Debug Borders */
+.debug * {
+  outline: 1px solid red !important;
+}
+
+.crop-center {
+  object-fit: cover;
+  object-position: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #62d790;
+}
+
+/* Contact links */
+.info-section a,
+.info-block a {
+  color: #62d790;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-section a:hover,
+.info-block a:hover {
+  color: #4cc47c;
+}
+
+/* Make project, about, and contact section copy smaller */
+.project-description,
+.info-section p,
+.info-block p {
+  font-size: 0.9rem; /* Adjust as needed, e.g., 0.85rem for even smaller */
+  line-height: 1.6;
+}
+
+.info-block h2,
+.project-wrapper h3 {
+  font-size: 1.3rem; /* Down from 1.5rem and 1.8rem respectively */
+}
+
+.hero-name {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.hero-name.hiding {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none; /* Optional: prevent interaction */
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: stretch; /* Stretch children vertically */
+}
+
+.contact-wrapper h2 {
+  /* Reduced font size for contact header */
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* MOBILE - stack project content vertically */
+@media (max-width: 768px) {
+  /* Gallery is single column on mobile */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Project section stacks image slider above description */
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-description {
+    order: 2;
+  }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .nav-right a {
+    margin-left: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-left {
+    display: none; /* Hide logo */
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* Ensure Gallery and Contact stick to edges */
+  .nav-right a:first-child,
+  .nav-right a:last-child {
+    flex: 0 0 auto;
+  }
+
+  /* Middle links: add margin left/right to push them inward */
+  .nav-right a:nth-child(2), /* Projects */
+  .nav-right a:nth-child(3) { /* About */
+    flex: 0 0 auto;
+    margin: 0 1px; /* Adjust this number to control spacing */
+  }
+
+  .nav-right a {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    margin: 0; /* reset any default margin */
+  }
+}
+.info-block {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-sticker {
+  background-color: #62d790;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  align-self: flex-start;
+
+  margin-left: auto;
+  margin-right: auto;
+  flex-shrink: 0;
+}
+
+.contact-sticker a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-sticker a:hover {
+  color: #4a9f65;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .info-block {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .contact-left,
+  .contact-sticker {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .contact-sticker {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.contact-left {
+  display: block !important;
+}
+
+.contact-left > * {
+  display: block !important;
+  margin: 0 0 0.5em 0;
+}
+.back-to-top {
+  display: flex;
+  align-items: center;
+  background-color: #62d790;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-left: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.back-to-top:hover {
+  background-color: #4a9f65;
+  color: white;
+}
+
+.back-to-top .arrow {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  transform: translateY(-1px);
+  animation: bounce 2s infinite;
+}
+
+/* playful bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 600px) {
+  .back-to-top {
+    margin-left: 0;
+    margin-top: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+}
+.contact-sticker-wrapper {
+  display: flex;
+  gap: 20px;
+  max-width: 400px; /* same width as contact sticker */
+  align-items: flex-start; /* align both stickers to top */
+}
+
+.contact-sticker {
+  background-color: #62d790;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.4;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+
+
+@media (max-width: 600px) {
+  .contact-sticker-wrapper {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .contact-sticker,
+  .back-to-top-sticker {
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 15px 10px;
+  }
+
+  .back-to-top-sticker {
+    width: 70%; /* wider on mobile */
+    align-self: flex-start;
+  }
+}
